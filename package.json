@@ -1,0 +1,40 @@
+{
+  "name": "deepseek-balance",
+  "version": "0.1.0",
+  "description": "在 DSH 左侧边栏查看 DeepSeek 开放平台 API 余额。",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bob-Bo1/dsh-deepseek-balance.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bob-Bo1/dsh-deepseek-balance/issues"
+  },
+  "homepage": "https://github.com/Bob-Bo1/dsh-deepseek-balance#readme",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "license": "MIT"
+}

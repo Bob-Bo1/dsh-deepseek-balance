@@ -1,0 +1,18 @@
+# Secrets and local DSH state
+.credentials.yaml
+settings.yaml
+.dsh/
+dsh-home/
+session*
+*.log
+
+# Local dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
