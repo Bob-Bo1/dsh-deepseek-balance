@@ -33,6 +33,13 @@ npx.cmd @deepseek-ai/dsh plugin --profile web add github:Bob-Bo1/dsh-deepseek-ba
 
 GitHub 安装需要网络连接。第一次安装 GitHub 插件时，如果 pnpm 提示需要允许构建脚本，请按照提示把它加入当前 profile 的 `pnpm-workspace.yaml`，然后重新执行安装命令。
 
+### 常见问题
+
+- 如果提示找不到 `dsh`，继续使用上面的 `npx @deepseek-ai/dsh ...` 命令，不需要额外配置全局命令。
+- 如果安装后左下角没有入口，请在运行 DSH 的窗口按 `Ctrl+C`，再执行 `npx @deepseek-ai/dsh web`，最后刷新网页。
+- 如果面板提示未配置 `DEEPSEEK_API_KEY`，请先在 DSH 模型设置中配置 DeepSeek 官方 API Key。不要把 Key 粘贴到 PowerShell、README 或 GitHub Issue 中。
+- 如果余额接口请求失败，请检查网络和 API Key 是否仍然有效。插件不会把 Key 发送到本项目服务器。
+
 ## 配置 API Key
 
 插件读取 DSH 凭据中的：
