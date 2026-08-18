@@ -11,18 +11,24 @@
 
 ## 安装
 
-在安装了 DSH 的电脑上执行：
+先安装 Node.js，然后打开 PowerShell。普通用户不需要全局安装 `dsh`，直接执行：
 
 ```powershell
-dsh plugin --profile web add github:Bob-Bo1/dsh-deepseek-balance
+npx @deepseek-ai/dsh plugin --profile web add github:Bob-Bo1/dsh-deepseek-balance
 ```
 
-然后重新启动 DSH。
-
-如果你的 DSH 命令名称是 `dsh.cmd`，可以使用：
+如果第一次运行提示 `Ok to proceed? (y)`，输入 `y` 并按回车。看到 `Done` 后，启动 DSH：
 
 ```powershell
-dsh.cmd plugin --profile web add github:Bob-Bo1/dsh-deepseek-balance
+npx @deepseek-ai/dsh web
+```
+
+然后打开 `http://127.0.0.1:3080`。如果 DSH 已经在运行，请先在运行窗口按 `Ctrl+C`，安装插件后重新启动。
+
+如果 Windows PowerShell 无法执行 `npx`，可以把命令中的 `npx` 改成 `npx.cmd`：
+
+```powershell
+npx.cmd @deepseek-ai/dsh plugin --profile web add github:Bob-Bo1/dsh-deepseek-balance
 ```
 
 GitHub 安装需要网络连接。第一次安装 GitHub 插件时，如果 pnpm 提示需要允许构建脚本，请按照提示把它加入当前 profile 的 `pnpm-workspace.yaml`，然后重新执行安装命令。
