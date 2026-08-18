@@ -12,6 +12,10 @@
   "homepage": "https://github.com/Bob-Bo1/dsh-deepseek-balance#readme",
   "type": "module",
   "main": "lib/index.js",
+  "scripts": {
+    "check": "node --check lib/index.js && node --check lib/client.js",
+    "test": "node --test test/*.test.js"
+  },
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
