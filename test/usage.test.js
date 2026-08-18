@@ -62,3 +62,25 @@ test("readUsageFromSessions returns a clear result when DSH has no session API",
   assert.equal(result.ok, false);
   assert.equal(result.errorCode, "session-usage-unavailable");
 });
+
+test("readUsageFromSessions does not treat an invalid timestamp as today's usage", async () => {
+  const result = await readUsageFromSessions({
+    async list() {
+      return [{ id: "invalid-time" }];
+    },
+    async readRaw() {
+      return {
+        content: event("invalid-time", "deepseek-v4-flash", {
+          inputTokens: 1_000_000,
+          outputTokens: 1_000_000
+        })
+      };
+    }
+  });
+
+  assert.equal(result.requests, 1);
+  assert.equal(result.cumulative.flash.amountCny, 3);
+  assert.equal(result.today.total.amountCny, 0);
+  assert.equal(result.firstUsageAt, null);
+  assert.equal(result.lastUsageAt, null);
+});
